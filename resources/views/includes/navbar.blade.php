@@ -10,7 +10,7 @@
          <div class="collapse navbar-collapse" id="navbarResponsive">
              <div class="navbar-nav ml-auto">
                  <ul class="navbar-nav">
-                     <li class="nav-item active">
+                     <li class="nav-item">
                          <a class="nav-link" href="{{ route('home') }}">Home</a>
                      </li>
 

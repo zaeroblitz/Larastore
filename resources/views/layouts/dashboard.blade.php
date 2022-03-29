@@ -14,14 +14,16 @@
     @stack('addon-style')
 </head>
 
-<body>
-    @include('includes.dashboard.navbar')
+<body class="g-sidenav-show bg-gray-100 page-dashboard">
+    @include('includes.dashboard.sidebar')
 
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
-        @include('includes.dashboard.header')
+        @include('includes.dashboard.navbar')
 
         @yield('content')
     </main>    
+
+    @include('includes.dashboard.setting')
 
     @stack('prepend-script')
     @include('includes.dashboard.script')
