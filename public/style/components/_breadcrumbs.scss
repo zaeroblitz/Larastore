@@ -1,0 +1,17 @@
+.section-breadcrumbs {
+  .breadcrumb {
+    background-color: transparent;
+    .breadcrumb-item {
+      a {
+        color: #979797;
+        font-weight: 400;
+        text-decoration: none;
+      }
+    }
+
+    .active {
+      color: #333533;
+      font-weight: 600;
+    }
+  }
+}

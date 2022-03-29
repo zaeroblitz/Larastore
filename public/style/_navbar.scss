@@ -1,0 +1,74 @@
+.navbar-store {
+  background-color: #fff;
+  padding-top: 10px;
+
+  @include media-breakpoint-down(md) {
+    background-color: #fff;
+  }
+
+  .nav-item {
+    .nav-link {
+      color: #0c0d36;
+      font-size: 16px;
+
+      @include media-breakpoint-up(lg) {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .active a {
+    color: #ff7158 !important;
+    font-weight: 600;
+
+    &:hover {
+      color: #d65139 !important;
+    }
+  }
+
+  .disabled a {
+    color: #d0d0d0 !important;
+    font-weight: 300;
+    cursor: default;
+  }
+
+  .btn-success {
+    border: none;
+    background-color: #29a867;
+    border-radius: 6px;
+  }
+
+  .btn-success:hover {
+    border: none;
+    background-color: #148a4d;
+  }
+
+  .profile-picture {
+    max-height: 45px;
+    border: 50%;
+    padding-left: 14px;
+    border-left: 1px solid #e4e4e4;
+  }
+
+  .card-badge {
+    display: inline-block;
+    min-width: 2em;
+    padding: 0.3em;
+    border-radius: 50%;
+    font-size: 10px;
+    text-align: center;
+    background-color: #29a867;
+    color: #fefefe;
+    margin-left: -10px;
+  }
+}
+
+.navbar-fixed-top .scrolled {
+  background-color: #fff;
+  transition: background-color 100ms linear;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}

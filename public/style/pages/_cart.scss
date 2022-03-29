@@ -1,0 +1,94 @@
+.section-cart {
+  margin-top: 30px;
+
+  .product-image {
+    width: 160px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 8px;
+
+    @include media-breakpoint-down(md) {
+      width: 120px;
+      height: 65px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      width: 100px;
+      height: 60px;
+    }
+  }
+
+  .product-name {
+    color: #333533;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .product-price {
+    color: #ff7158;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .product-sub-title {
+    color: #979797;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .btn-remove {
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: #fff;
+
+    @include button-variant(#fc5e84, transparent);
+  }
+}
+
+.section-shipping {
+  margin-top: 30px;
+
+  .shipping-group {
+    margin-top: 24px;
+
+    label {
+      color: #333533;
+      font-size: 16px;
+    }
+
+    .form-control {
+      color: #333533;
+      background-color: #f3f3f3;
+      border: none;
+      border-radius: 12px;
+      padding: 28px 20px;
+    }
+  }
+}
+
+.section-payment {
+  margin-top: 30px;
+
+  .payment-title {
+    color: #333533;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .payment-sub-title {
+    color: #979797;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .payment-total {
+    color: #29a867;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .btn-success {
+    border-radius: 12px;
+    padding: 10px 16px;
+  }
+}

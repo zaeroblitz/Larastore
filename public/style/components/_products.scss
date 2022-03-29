@@ -1,0 +1,39 @@
+.section-new-products {
+  margin-top: 30px;
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .new-products-item {
+    margin-bottom: 12px;
+
+    .new-product-image {
+      border-radius: 20px;
+      overflow: hidden;
+
+      :hover {
+        transform: scale(1.05);
+      }
+
+      img {
+        width: 216px;
+        height: 140px;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+    }
+
+    .new-product-name {
+      color: #333533;
+      font-size: 18px;
+      margin-top: 12px;
+    }
+
+    .new-product-price {
+      color: #ff7158;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+}
