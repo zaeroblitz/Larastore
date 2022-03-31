@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// User Area
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 Route::get('/details/{id}', [DetailController::class, 'index'])->name('detail');
@@ -41,6 +43,13 @@ Route::get('/dashboard/transactions/{id}', [DashboardTransactionController::clas
 
 Route::get('/dashboard/settings/store', [DashboardSettingController::class, 'store'])->name('dashboard-settings-store');
 Route::get('/dashboard/settings/account', [DashboardSettingController::class, 'account'])->name('dashboard-settings-account');
+
+// Admin Area
+Route::prefix('admin')
+->namespace('Admin')
+->group(function () {
+    Route::get('/', [AdminDashboardController::class, 'index'])->name('admin-dashboard');
+});
 
 // Auth
 Route::get('/register/success', [RegisterController::class, 'success'])->name('register-success');
