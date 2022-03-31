@@ -35,8 +35,8 @@ Dashboard Transactions - Larastore
                         <h5>30 Maret, 2022</h5>
                     </div>
                     <div class="col-6">
-                        <p class="text-muted mb-0">Status</p>
-                        <h5 class="text-warning">Shipping</h5>
+                        <p class="text-muted mb-0">Transaction Status</p>
+                        <h5 class="text-danger">Pending</h5>
                     </div>
                 </div>
                 <div class="row justify-content-around">
@@ -86,9 +86,8 @@ Dashboard Transactions - Larastore
             </div>
             <div class="row mb-2 mb-4">
                 <div class="col-md-3 col-5">
-                    <p class="text-muted mb-0">Status</p>
-                    <select name="status" id="status" class="form-control" style="padding: 0px" v-model="status">
-                        <option value="UNPAID">Unpaid</option>
+                    <p class="text-muted mb-0">Shipping Status</p>
+                    <select name="status" id="status" class="form-control" style="padding: 0px" v-model="status">                        
                         <option value="PENDING">Pending</option>
                         <option value="SHIPPING">Shipping</option>
                         <option value="SUCCESS">Success</option>

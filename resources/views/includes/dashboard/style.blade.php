@@ -10,4 +10,4 @@
 
 <link href="/style/main.css" rel="stylesheet" />
 <link id="pagestyle" href="/template/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-<link rel="icon" type="image/png" href="/images/logo.png" />
+<link rel="icon" type="image/png" href="/icons/logo_circle.png" />
