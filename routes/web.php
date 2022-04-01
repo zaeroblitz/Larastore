@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CartController;
@@ -46,9 +47,9 @@ Route::get('/dashboard/settings/account', [DashboardSettingController::class, 'a
 
 // Admin Area
 Route::prefix('admin')
-->namespace('Admin')
 ->group(function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('admin-dashboard');
+    Route::resource('category', AdminCategoryController::class);
 });
 
 // Auth

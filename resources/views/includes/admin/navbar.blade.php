@@ -31,11 +31,6 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link d-inline-block" href="#"><img src="/images/shopping.svg" alt="Shopping" />
-                        {{-- <div class="card-badge">3</div> --}}
-                    </a>
-                </li>
             </ul>
         </div>
     </div>
