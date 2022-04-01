@@ -8,8 +8,8 @@ Admin - Larastore
 <div class="container-fluid py-4">
     <div class="row dasboard-header">
         <div class="col-12">
-            <h3>Category</h3>
-            <p>List of Categories</p>
+            <h3>User</h3>
+            <p>List of Users</p>
         </div>
     </div>   
     
@@ -18,16 +18,16 @@ Admin - Larastore
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{ route('category.create') }}" class="btn btn-info">
-                        + Tambah Kategori Baru</a>
+                        <a href="{{ route('user.create') }}" class="btn btn-info">
+                        + Tambah User Baru</a>
                         <div class="table-responsive">
                             <table id="crudTable" class="table table-hover table-borderless scroll-horizontal-vertical w-100">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Nama</th>
-                                        <th>Slug</th>
-                                        <th>Icon</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -55,8 +55,8 @@ Admin - Larastore
             columns: [
                 { data: 'id', name:'id'},
                 { data: 'name', name:'name'},
-                { data: 'slug', name:'slug'},
-                { data: 'icon', name:'icon'},
+                { data: 'email', name:'email'},
+                { data: 'role', name:'role'},
                 { 
                     data: 'action', 
                     name:'action',
