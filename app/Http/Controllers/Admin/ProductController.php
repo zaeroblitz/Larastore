@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Product;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Yajra\DataTables\Facades\DataTables;
-use App\Http\Requests\Admin\ProductRequest;
-use App\Models\Category;
 use App\Models\User;
+use App\Models\Product;
+use App\Models\Category;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ProductRequest;
 use Illuminate\Support\Str;
+use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends Controller
 {

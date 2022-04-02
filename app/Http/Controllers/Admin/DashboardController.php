@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Transaction;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Models\Transaction;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
