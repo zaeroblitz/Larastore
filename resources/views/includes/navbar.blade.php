@@ -10,11 +10,11 @@
          <div class="collapse navbar-collapse" id="navbarResponsive">
              <div class="navbar-nav ml-auto">
                  <ul class="navbar-nav">
-                     <li class="nav-item">
+                     <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
                          <a class="nav-link" href="{{ route('home') }}">Home</a>
                      </li>
 
-                     <li class="nav-item">
+                     <li class="nav-item {{ (request()->is('categories') || request()->is('categories/*')) ? 'active' : '' }}">
                          <a class="nav-link" href="{{ route('categories') }}">Categories</a>
                      </li>
 

@@ -31,7 +31,8 @@ use Illuminate\Support\Facades\Route;
 // User Area
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
-Route::get('/details/{id}', [DetailController::class, 'index'])->name('detail');
+Route::get('/categories/{slug}', [CategoryController::class, 'detail'])->name('categories-detail');
+Route::get('/details/{slug}', [DetailController::class, 'index'])->name('detail');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/success', [CartController::class, 'success'])->name('cart');
 

@@ -11653,6 +11653,8 @@ footer p {
   height: 140px;
   border-radius: 20px;
   overflow: hidden;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .section-new-products .new-products-item .new-product-name {
