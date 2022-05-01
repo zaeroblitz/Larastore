@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\LocationController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
@@ -21,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('register/check', [RegisterController::class, 'check'])->name('api-register-check');
+Route::get('provinces', [LocationController::class, 'provinces'])->name('api-provinces');
+Route::get('regencies/{province_id}', [LocationController::class, 'regencies'])->name('api-regencies');

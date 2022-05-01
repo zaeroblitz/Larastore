@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Detail Product Page
+Detail Product {{ $product->name }}
 @endsection
 
 @section('content')
@@ -44,23 +44,22 @@ Detail Product Page
             <div class="section-description mb-4" data-aos="fade-up">
                 <div class="row">
                     <div class="col-12 col-md-9 section-description-group">
-                        <h4 class="product-name col-12">Sofa Ternyaman</h4>
-                        <p class="product-seller col-12">By Galih Pratama</p>
-                        <p class="product-price col-12">$1,409</p>
-                        <p class="product-description col-12 col-lg-10">
-                            The Nike Air Max 720 SE goes bigger than ever before with Nike's
-                            tallest Air unit yet for unimaginable, all-day comfort. There's
-                            super breathable fabrics on the upper, while colours add a
-                            modern edge. <br />Bring the past into the future with the Nike
-                            Air Max 2090, a bold look inspired by the DNA of the iconic Air
-                            Max 90. Brand-new Nike Air cushioning underfoot adds
-                            unparalleled comfort while transparent mesh and vibrantly
-                            coloured details on the upper are blended with timeless OG
-                            features for an edgy, modernised look.
-                        </p>
+                        <h4 class="product-name col-12">{{ $product->name }}</h4>
+                        <p class="product-seller col-12">By {{ $product->user->name }}</p>
+                        <p class="product-price col-12">$ {{ number_format($product->price) }}</p>
+                        <div class="product-description col-12 col-lg-10">
+                            {!! $product->description !!}
+                        </div>
                     </div>
                     <div class="col-12 col-md-3 col-lg-2 mb-4">
-                        <a href="{{ route('cart') }}" class="btn btn-success d-block">Add to Cart</a>
+                        @auth
+                            <form action="{{ route('detail-add', $product->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                                <button type="submit" class="btn btn-success d-block">Add to Cart</button>
+                            </form>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-success d-block">Sign In Now</a>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -141,22 +140,12 @@ Detail Product Page
             data: {
                 activePhoto: 0,
                 photos: [
-                    {
-                        id: 1,
-                        url: "/images/detail_product_1.png",
-                    },
-                    {
-                        id: 2,
-                        url: "/images/detail_product_2.png",
-                    },
-                    {
-                        id: 3,
-                        url: "/images/detail_product_3.png",
-                    },
-                    {
-                        id: 4,
-                        url: "/images/detail_product_4.png",
-                    },
+                    @foreach ($product->galleries as $gallery)
+                        {
+                            id: {{ $gallery->id }},
+                            url: '{{ Storage::url($gallery->photo) }}'
+                        },
+                    @endforeach
                 ],
             },
             methods: {

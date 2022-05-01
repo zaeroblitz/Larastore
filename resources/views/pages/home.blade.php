@@ -72,7 +72,7 @@ Larastore - Your Best Marketplace
                             </div>
                             <div class="new-product-caption">
                                 <p class="new-product-name mb-0">{{ $product -> name }}</p>
-                                <p class="new-product-price">${{ $product -> price }}</p>
+                                <p class="new-product-price">$ {{ number_format($product -> price) }}</p>
                             </div>
                         </div>
                     </a>

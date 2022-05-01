@@ -40,7 +40,7 @@
                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                  data-toggle="dropdown" aria-expanded="false">
                                  <div class="row align-items-center">
-                                     <img src="{{ (Auth::user()->avatar) ? Storage::url(Auth::user()->avatar) : 'images/user_default.svg' }}"
+                                     <img src="{{ isset(Auth::user()->avatar) ? Storage::url(Auth::user()->avatar) : '/images/user_default.svg' }}"
                                          alt="avatar" class="profile-picture d-none d-lg-flex" />
                                      <div class="ml-2 nav-user-welcome">
                                          <p class="mb-0 ml-2">Hi, {{ Auth::user()->name }}</p>
@@ -64,10 +64,21 @@
                          </li>
 
                          <li class="nav-item">
-                             <a class="nav-link" href="#"><img src="images/shopping.svg" alt="Shopping"
-                                     class="d-none d-lg-flex" />
-                                 <p class="d-flex d-lg-none">Cart</p>
-                             </a>
+                             @php
+                                 $carts = \App\Models\Cart::where('users_id', Auth::user()->id)->count();
+                             @endphp
+                             @if ($carts > 0)
+                                <a class="nav-link d-inline-block" href="{{ route('cart') }}">
+                                    <img src="images/shopping_filled.svg" alt="Cart" />
+                                    <div class="card-badge">{{ $carts }}</div>
+                                </a> 
+                             @else
+                                <a class="nav-link" href="{{ route('cart') }}">                                
+                                    <img src="/images/shopping.svg" alt="Cart"
+                                        class="d-none d-lg-flex" />
+                                    <p class="d-flex d-lg-none">Cart</p>
+                                </a>
+                             @endif                             
                          </li>
                      @endauth
                  </ul>
