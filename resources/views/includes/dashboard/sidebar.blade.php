@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse w-auto sidebar-collapse" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard') }}">
+                <a class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
@@ -38,7 +38,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard-products') }}">
+                <a class="nav-link {{ request()->is('dashboard/products*') ? 'active' : '' }}" href="{{ route('dashboard-products') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
@@ -67,7 +67,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard-transactions') }}">
+                <a class="nav-link {{ request()->is('dashboard/transactions') ? 'active' : '' }}" href="{{ route('dashboard-transactions') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
@@ -93,7 +93,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard-settings-store') }}">
+                <a class="nav-link {{ request()->is('dashboard/settings/store') ? 'active' : '' }}" href="{{ route('dashboard-settings-store') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1"
@@ -122,7 +122,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard-settings-account') }}">
+                <a class="nav-link {{ request()->is('dashboard/settings/account') ? 'active' : '' }}" href="{{ route('dashboard-settings-account') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1"
@@ -171,6 +171,14 @@
                 </div>
             </div>
         </div>
-        <a class="btn bg-gradient-primary mt-3 w-100" href="index.html">Sign Out</a>
+        <a class="btn bg-gradient-primary mt-3 w-100" 
+            href="{{ route('logout') }}"
+            onclick="event.preventDefault(); 
+            document.getElementById('logout-form').submit();">
+            Sign Out
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
     </div>
 </aside>

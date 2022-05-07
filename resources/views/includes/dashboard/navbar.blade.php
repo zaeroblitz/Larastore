@@ -17,34 +17,52 @@
                     <a href="#" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <div class="row align-items-center navbar-user">
-                            <img src="/images/user_pc.png" alt="avatar" class="profile-picture" />
+                            <img src="{{ isset(Auth::user()->avatar) ? Storage::url(Auth::user()->avatar) : '/images/user_default.svg' }}" alt="avatar" class="profile-picture" />
                             <div class="nav-user-welcome d-none d-lg-flex">
-                                <p class="mb-0">Hi, Zaero Blitz</p>
+                                <p class="mb-0">Hi, {{ Auth::user()->name }}</p>
                             </div>
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                         <li class="mb-2">
-                            <a class="dropdown-item" href="dashboard.html">
+                            <a class="dropdown-item" href="{{ route('dashboard') }}">
                                 Dashboard
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a class="dropdown-item border-radius-md" href="#">
+                            <a class="dropdown-item border-radius-md" href="{{ route('dashboard-settings-account') }}">
                                 Settings
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item border-radius-md" href="index.html">
+                            <a class="dropdown-item border-radius-md" 
+                                href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); 
+                                document.getElementById('logout-form').submit();">
                                 Sign Out
                             </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link d-inline-block" href="#"><img src="/images/shopping.svg" alt="Shopping" />
-                        {{-- <div class="card-badge">3</div> --}}
+                <li class="nav-item ml-3">
+                    @php
+                        $carts = \App\Models\Cart::where('users_id', Auth::user()->id)->count();
+                    @endphp
+                    @if ($carts > 0)
+                    <a class="nav-link d-inline-block" href="{{ route('cart') }}">
+                        <img src="images/shopping_filled.svg" alt="Cart" />
+                        <div class="card-badge">{{ $carts }}</div>
+                    </a> 
+                    @else
+                    <a class="nav-link" href="{{ route('cart') }}">                                
+                        <img src="/images/shopping.svg" alt="Cart"
+                            class="d-none d-lg-flex" />
+                        <p class="d-flex d-lg-none">Cart</p>
                     </a>
+                    @endif                             
                 </li>
             </ul>
         </div>

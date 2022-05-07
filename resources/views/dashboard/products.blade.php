@@ -14,52 +14,19 @@ Dashboard Product - Larastore
     </div>
 
     <div class="row col-lg-3 col-md-4 col-6">
-        <a href="dashboard-products-create.html" class="btn btn-info">Add New Product</a>
+        <a href="{{ route('dashboard-products-create') }}" class="btn btn-info">Add New Product</a>
     </div>
 
     <div class="row dashboard-products">
-        <div class="product-item card p-md-3 p-2 mr-2 mb-4 col-lg-4 col-md-4 col-6">
-            <a href="dashboard-products-details.html">
-                <img src="/images/product_5.png" alt="product" />
-                <h4>Shirup Marzzan</h4>
-                <p class="mb-0">Foods</p>
-            </a>
-        </div>
-        <div class="product-item card p-md-3 p-2 mr-2 mb-4 col-lg-4 col-md-4 col-6">
-            <a href="dashboard-products-details.html">
-                <img src="/images/product_1.png" alt="product" />
-                <h4>Apple Watch 4</h4>
-                <p class="mb-0">Gadgets</p>
-            </a>
-        </div>
-        <div class="product-item card p-md-3 p-2 mr-2 mb-4 col-lg-4 col-md-4 col-6">
-            <a href="dashboard-products-details.html">
-                <img src="/images/product_2.png" alt="product" />
-                <h4>LeBron X</h4>
-                <p class="mb-0">Sneakers</p>
-            </a>
-        </div>
-        <div class="product-item card p-md-3 p-2 mr-2 mb-4 col-lg-4 col-md-4 col-6">
-            <a href="dashboard-products-details.html">
-                <img src="/images/product_5.png" alt="product" />
-                <h4>Shirup Marzzan</h4>
-                <p class="mb-0">Foods</p>
-            </a>
-        </div>
-        <div class="product-item card p-md-3 p-2 mr-2 mb-4 col-lg-4 col-md-4 col-6">
-            <a href="dashboard-products-details.html">
-                <img src="/images/product_1.png" alt="product" />
-                <h4>Apple Watch 4</h4>
-                <p class="mb-0">Gadgets</p>
-            </a>
-        </div>
-        <div class="product-item card p-md-3 p-2 mr-2 mb-4 col-lg-4 col-md-4 col-6">
-            <a href="dashboard-products-details.html">
-                <img src="/images/product_2.png" alt="product" />
-                <h4>LeBron X</h4>
-                <p class="mb-0">Sneakers</p>
-            </a>
-        </div>
+        @foreach ($products as $product)
+            <div class="product-item card p-md-3 p-2 mr-2 mb-4 col-lg-4 col-md-4 col-6">
+                <a href="{{ route('dashboard-products-details', $product->id) }}">
+                    <img src="{{ Storage::url($product->galleries->first()->photo ?? '') }}" alt="product" />
+                    <h4>{{ $product->name }}</h4>
+                    <p class="mb-0">{{ $product->category->name }}</p>
+                </a>
+            </div>
+        @endforeach
     </div>
 </div>
 @endsection
